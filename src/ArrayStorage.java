@@ -4,11 +4,11 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    Resume[] storage = new Resume[3];
+    Resume[] storage = new Resume[10000];
     int index;
 
     void clear() {
-        for(int i = 0; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             storage[i].uuid = null;
         }
         index = 0;
@@ -21,7 +21,7 @@ public class ArrayStorage {
 
     Resume get(String uuid) {
         for (int i = 0; i < index; i++) {
-            if(storage[i].uuid.equals(uuid)) {
+            if (storage[i].uuid.equals(uuid)) {
                 return storage[i];
             }
         }
@@ -29,10 +29,10 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0; i < index - 1; i++) {
-            if(storage[i].uuid.equals(uuid)) {
-                for(int j = i + 1; j < index - 1; j++){
-                    storage[j - 1] = storage[j];
+        for (int i = 0; i < index; i++) {
+            if (storage[i].uuid.equals(uuid)) {
+                if (i != index - 1) {
+                    storage[i] = storage[index - 1];
                 }
                 storage[index - 1] = null;
                 index--;
