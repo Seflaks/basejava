@@ -8,7 +8,7 @@ public class ArrayStorage {
     int size;
 
     void clear() {
-        Arrays.fill(storage, null);
+        Arrays.fill(storage, 0, size - 1, null);
         size = 0;
     }
 
@@ -55,11 +55,11 @@ public class ArrayStorage {
         return size;
     }
 
-    void update(Resume resume) {
-        int index = searchIndex(resume.getUuid());
+    void update(String uuid) {
+        int index = searchIndex(uuid);
         if (index != -1) {
-            storage[index].setUuid(resume.getUuid());
-        } else System.out.println("Резюме с uuid = " + resume.getUuid() + " не существует!");
+            storage[index].setUuid(uuid);
+        } else System.out.println("Резюме с uuid = " + uuid + " не существует!");
     }
 
     int searchIndex(String uuid) {
