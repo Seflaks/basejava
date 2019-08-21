@@ -16,9 +16,16 @@ public class ArrayStorage {
         if (size >= storage.length) {
             System.out.println("Переполнение массива!");
         } else if (searchIndex(resume.getUuid()) == -1) {
-                    storage[size] = resume;
-                    size++;
-                } else System.out.println("Резюме уже есть в базе");
+            storage[size] = resume;
+            size++;
+        } else System.out.println("Резюме уже есть в базе");
+    }
+
+    void update(Resume resume) {
+        int index = searchIndex(resume.getUuid());
+        if (index != -1) {
+            storage[index] = resume;
+        } else System.out.println("Резюме с uuid = " + resume.getUuid() + " не существует!");
     }
 
     Resume get(String uuid) {
@@ -53,13 +60,6 @@ public class ArrayStorage {
 
     int size() {
         return size;
-    }
-
-    void update(String uuid) {
-        int index = searchIndex(uuid);
-        if (index != -1) {
-            storage[index].setUuid(uuid);
-        } else System.out.println("Резюме с uuid = " + uuid + " не существует!");
     }
 
     int searchIndex(String uuid) {
