@@ -10,11 +10,6 @@ import java.util.Arrays;
 public class SortedArrayStorage extends AbstractArrayStorage {
 
     @Override
-    public void save(Resume resume) {
-
-    }
-
-    @Override
     protected void fillDeletedElement(int index) {
         int numMoved = size - index - 1;
         if(numMoved > 0) {
