@@ -8,8 +8,9 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-    Resume[] storage = new Resume[10_000];
-    int size;
+    private static final int STORAGE_LIMIT = 10_000;
+    private Resume[] storage = new Resume[STORAGE_LIMIT];
+    private int size;
 
     public void clear() {
         Arrays.fill(storage, 0, size - 1, null);
@@ -17,7 +18,7 @@ public class ArrayStorage {
     }
 
     public void save(Resume resume) {
-        if (size >= storage.length) {
+        if (size >= STORAGE_LIMIT) {
             System.out.println("Переполнение массива!");
         } else if (searchIndex(resume.getUuid()) != -1) {
             System.out.println("Резюме уже есть в базе");
