@@ -1,5 +1,8 @@
+import ru.seflaks.basejava.model.Resume;
+import ru.seflaks.basejava.storage.ArrayStorage;
+
 /**
- * Test for your ArrayStorage implementation
+ * Test for your ru.seflaks.basejava.storage.ArrayStorage implementation
  */
 public class MainTestArrayStorage {
     static final ArrayStorage ARRAY_STORAGE = new ArrayStorage();
@@ -32,8 +35,8 @@ public class MainTestArrayStorage {
 
     static void printAll() {
         System.out.println("\nGet All");
-        for (Resume r : ARRAY_STORAGE.getAll()) {
-            System.out.println(r);
+        for (Resume resume : ARRAY_STORAGE.getAll()) {
+            System.out.println(resume);
         }
     }
 }

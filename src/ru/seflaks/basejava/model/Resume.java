@@ -1,3 +1,5 @@
+package ru.seflaks.basejava.model;
+
 /**
  * Initial resume class
  */
