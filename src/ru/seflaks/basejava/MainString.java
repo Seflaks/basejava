@@ -5,7 +5,7 @@ public class MainString {
         String[] strArray = new String[]{"1", "2", "3", "4", "5"};
 
         StringBuilder sb = new StringBuilder();
-        for (String str: strArray) {
+        for (String str : strArray) {
 //            System.out.println(str);
             sb.append(str).append(", ");
         }
